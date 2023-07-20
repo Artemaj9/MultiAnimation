@@ -39,11 +39,15 @@ struct ContentView : View {
             .overlay(
               Circle()
                 .fill(
+                    zoomed ? Color.clear :
                   Color(white: 1, opacity: 0.4)
                 )
                 .scaleEffect(0.8)
             )
+            .rotation3DEffect(Angle(degrees: zoomed ? 720 : 0), axis: /*@START_MENU_TOKEN@*/(x: 10.0, y: 10.0, z: 10.0)/*@END_MENU_TOKEN@*/)
+
             .saturation(0)
+            .rotationEffect(Angle(degrees: zoomed ? -360 : 0))
             .position(
                 x: zoomed ? geometry.frame(in: .local).midX : 600,
               y: 50
